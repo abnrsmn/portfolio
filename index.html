@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(to left, #676767, #868686, #a6a6a6);
+            background-size: cover;
+            background-attachment: fixed;
+           /* animation: fadeIn 0.2s; */
+           /* position: relative; */
+           /* height: 1200px; */
+        }
+        .nav-container {
+            height: 8vh;
+            position: relative;
+            top: 0;
+            left: 0;
+            /* background-color: beige; */
+            width: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #fff;
+            border-bottom: 1px solid #a6a6a6;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 100;
+            letter-spacing: 22px;
+            margin-left: 30px;
+            /* background-color: red; */
+            display: flex;
+            align-items: center;
+            height: inherit;
+            width: fit-content;
+            cursor: pointer;
+        }
+        .links {
+            position: absolute;
+            right: 1%;
+            top: 0;
+            display: flex;
+            align-items: center;
+            /* gap: 30px; */
+            height: inherit;
+            font-size: 18px;
+            font-weight: 100;
+        }
+        .links div {
+            cursor: pointer;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .links div:hover {
+            /* cursor: pointer; */
+            background-color: #fff;
+            color: #676767;
+            transition: 0.5s;
+        }
+        .hero-container {
+            /* background-color: red; */
+            height: 500px;
+            width: 100%;
+            position: relative;
+            top: 40px;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            user-select: none;
+        }
+        .hero-background {
+            height: inherit;
+            width: 96%;
+            background-color: #EEEEEE;
+            /* opacity: 10%; */
+            /* z-index: 1; */
+            box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.15),
+                0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+                border-radius: 50px;
+        }
+        .hero-background-moving {
+            position: absolute;
+            height: inherit;
+            left: 2%;
+            width: 96%;
+            background-color: transparent;
+            /* opacity: 10%; */
+            /* z-index: 1; */
+            box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.15),
+                0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+                border-radius: 50px;
+            transition: 1s ease-in;
+        }
+        .profile {
+            /* height: inherit; */
+            /* background-color: red; */
+            position: absolute;
+            left: 12%;
+            top: 22%;
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* width: 0; */
+        }
+        .name {
+            font-size: 62px;
+        }
+        .position {
+            font-size: 24px;
+            opacity: 24%;
+            /* color: #fff; */
+        }
+        .interaction-block {
+            position: fixed;
+            height: fit-content;
+            left: 58%;
+            top: 22%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            /* background-color: red; */
+            display: flex;
+            /* gap: 30px; */
+            cursor: pointer;
+            font-weight: 500;
+            width: 400px;
+            z-index: 1;
+        }
+        .interaction-block p {
+            width: 90px;
+            height: fit-content;
+            margin-right: 20px;
+            /* background-color: red; */
+            text-align: center;
+
+        }
+        .interaction-block p:hover {
+            color: #a6a6a6;
+            transition: 0.4s;
+
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            100% { opacity: 0; }
+            0% { opacity: 1; }
+        }
+
+        #info-contents {
+            position: absolute;
+            top: 22%;
+            left: 12%;
+            height: 120px;
+            width: 100px;
+            /* background-color: beige; */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-content: center;
+        }
+        svg {
+            height: 30px;
+            margin-top: 20px;
+            /* background-color: red; */
+
+        }
+        #info-contents p {
+            /* text-align: center; */
+            /* background-color: green; */
+            display: flex;
+            align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin-top: 15px;
+            text-align: left;
+            width: 100px;
+            margin-left: 35px;
+            opacity: 54%;
+            user-select: none;
+            cursor: pointer;
+        }
+        #contacts-contents {
+            position: absolute;
+            top: 22%;
+            left: 12%;
+            /* background-color: red; */
+        }
+        #contacts-contents p{
+            margin-top: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 22px;
+        }
+        #contacts-contents span{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 13px;
+            opacity: 54%;
+            pointer-events: none;
+        }
+
+
+        #container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.steam {
+  position: absolute;
+  top: 42%;
+  left: 430px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: -75px;
+  margin-left: 75px;
+  opacity: 0;
+}
+
+#steam1 {
+  -webkit-animation: steam1 4s ease-out infinite;
+  animation: steam1 4s ease-out infinite;
+}
+
+#steam3 {
+  -webkit-animation: steam1 4s ease-out 1s infinite;
+  animation: steam1 4s ease-out 1s infinite;
+}
+
+@-webkit-keyframes steam1 {
+  0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+  100% {transform: translateY(-200px) translateX(-20px) scale(1); opacity: 0;}
+}
+
+@keyframes steam1 {
+  0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+  100% {transform: translateY(-200px) translateX(-20px) scale(1); opacity: 0;}
+}
+
+#steam2 {
+  -webkit-animation: steam2 4s ease-out 0.5s infinite;
+  animation: steam2 4s ease-out 0.5s infinite;
+}
+
+#steam4 {
+  -webkit-animation: steam2 4s ease-out 1.5s infinite;
+  animation: steam2 4s ease-out 1.5s infinite;
+}
+
+@-webkit-keyframes steam2 {
+  0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+  100% {transform: translateY(-200px) translateX(20px) scale(1); opacity: 0;}
+}
+
+@keyframes steam2 {
+  0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+  100% {transform: translateY(-200px) translateX(20px) scale(1); opacity: 0;}
+}
+
+#cup {
+  z-index: 1;
+}
+
+#cup-body {
+  position: absolute;
+  top: 42%;
+  left: 430px;
+  height: 200px;
+  width: 300px;
+  border-radius: 0 0 150px 150px;
+  background-color: #fff;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#cup-shade {
+  height: 300px;
+  width: 200px;
+  background-color: #F3F3F3;
+  display: inline-block;
+  margin-left: 42%;
+  margin-top: -3px;
+  transform: rotate(50deg);
+  z-index: 2;
+}
+
+#cup-handle {
+  position: relative;
+  top: 86px;
+  left: 440px;
+  height: 75px;
+  width: 80px;
+  border-radius: 0 150px 150px 0;
+  border: 15px solid #F3F3F3;
+  margin-bottom: 95px;
+  margin-left: 250px;
+  display: inline-block;
+  z-index: 0;
+}
+
+#saucer {
+  position: absolute;
+  top: 300px;
+  left: 430px;
+  height: 30px;
+  width: 300px;  
+  border-radius: 0 0 100px 100px;
+  background-color: #F9F9F9;
+  margin-top: -32px;
+  margin-left: 5px;
+  z-index: 2;
+}
+
+#shadow {
+    position: absolute;
+  top: 300px;
+  left: 430px;
+  height: 10px;
+  width: 300px;
+  border-radius: 50%;
+  margin-top: -5px;
+  margin-left: 6px;
+  background-color: #7bb8d4;
+}
+    </style>
+</head>
+<body>
+    <!-- nav bar -->
+    <div class="nav-container">
+        <!-- <div class="logo">PORTFOLIO</div> -->
+    </div>
+    
+    <div class="hero-container" id="hero-container">
+        <div class="hero-background">
+        </div>
+        <div class="hero-background-moving" id="hero-background-moving"></div>
+        <div class="profile" id="home-contents">
+            <div class="name">Abneer Semana</div>
+            <div class="position">Software Engineer</div>
+            <div id="home-contents-text"></div>
+        </div>
+        <div id="projects-contents">
+            <p id="date">Jan 1, 2024</p>
+            <p id="projects-name"></p>
+        </div>
+        <div id="info-contents">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg>
+            <p id="fb" onclick="clickLink(this)">@abnrsmn</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            <p id="ig" onclick="clickLink(this)">@abnrsmn</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>
+            <p id="lnkd" onclick="clickLink(this)">@abnrsmn</p>
+        </div>
+        <div id="contacts-contents">
+            <p>abnrsemana@gmail.com</p>
+            <span>EMAIL</span>
+            <p>+6309701330861</p>
+            <span>CONTACT NUMBER</span>
+
+        </div>
+        <div class="interaction-block">
+            <p id="home" onclick="clickThis(this)">Home</p>
+            <p id="projects" onclick="clickThis(this)">Projects</p>
+            <p id="info" onclick="clickThis(this)">Info</p>
+            <p id="contacts" onclick="clickThis(this)">Contacts</p>
+        </div>
+        <div id="container">
+            <div class="steam" id="steam1"> </div>
+            <div class="steam" id="steam2"> </div>
+            <div class="steam" id="steam3"> </div>
+            <div class="steam" id="steam4"> </div>
+          
+            <div id="cup">
+              <div id="cup-body">
+                <div id="cup-shade"></div>
+              </div>
+              <div id="cup-handle"></div>
+            </div>
+          
+            <div id="saucer"></div>
+          
+            <div id="shadow"></div>
+          </div>
+    </div>
+
+    <script>
+        setInterval(movingcard,5000);
+        
+        function movingcard() {
+            // document.getElementById("hero-background-moving").style.width = "96%";
+            const colors = ['#424246', '#212121', '#bbb6b6', '#d4d9dd', '#FFF'];
+            const randomFont = colors[Math.floor(Math.random() * colors.length)];
+            const randcolors = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById("hero-background-moving").style.backgroundColor = randomFont;
+            color_checker(randomFont);
+        };
+        function color_checker(color) {
+            // alert(color);
+            if (color == "#424246"){
+                document.getElementById("hero-container").style.color = "#fff";
+                document.getElementById("hero-container").style.transition = "1s";
+                document.getElementById("cup-body").style.backgroundColor = "#fff";
+                document.getElementById("cup-body").style.transition = "1s";
+                document.getElementById("cup-shade").style.backgroundColor = "#f3f3f3";
+                document.getElementById("cup-shade").style.transition = "1s";
+                document.getElementById("steam1").style.backgroundColor = "#fff";
+                document.getElementById("steam2").style.backgroundColor = "#fff";
+                document.getElementById("steam3").style.backgroundColor = "#fff";
+                document.getElementById("steam4").style.backgroundColor = "#fff";
+            } else if(color == "#212121") {
+                document.getElementById("hero-container").style.color = "#eee";
+                document.getElementById("hero-container").style.transition = "1s";
+                document.getElementById("cup-body").style.backgroundColor = "#fff";
+                document.getElementById("cup-body").style.transition = "1s";
+                document.getElementById("cup-shade").style.backgroundColor = "#f3f3f3";
+                document.getElementById("cup-shade").style.transition = "1s";
+                document.getElementById("steam1").style.backgroundColor = "#fff";
+                document.getElementById("steam2").style.backgroundColor = "#fff";
+                document.getElementById("steam3").style.backgroundColor = "#fff";
+                document.getElementById("steam4").style.backgroundColor = "#fff";
+            } else if(color == "#bbb6b6") {
+                document.getElementById("hero-container").style.color = "#222";
+                document.getElementById("hero-container").style.transition = "1s";
+                document.getElementById("cup-body").style.backgroundColor = "#fff";
+                document.getElementById("cup-body").style.transition = "1s";
+                document.getElementById("cup-shade").style.backgroundColor = "#f3f3f3";
+                document.getElementById("cup-shade").style.transition = "1s";
+                document.getElementById("steam1").style.backgroundColor = "#fff";
+                document.getElementById("steam2").style.backgroundColor = "#fff";
+                document.getElementById("steam3").style.backgroundColor = "#fff";
+                document.getElementById("steam4").style.backgroundColor = "#fff";
+            } else if(color == "#d4d9dd") {
+                document.getElementById("hero-container").style.color = "#222";
+                document.getElementById("hero-container").style.transition = "1s";
+                document.getElementById("cup-body").style.backgroundColor = "#f3f3f3";
+                document.getElementById("cup-body").style.transition = "1s";
+                document.getElementById("cup-shade").style.backgroundColor = "#999";
+                document.getElementById("cup-shade").style.transition = "1s";
+                document.getElementById("steam1").style.backgroundColor = "#fff";
+                document.getElementById("steam2").style.backgroundColor = "#fff";
+                document.getElementById("steam3").style.backgroundColor = "#fff";
+                document.getElementById("steam4").style.backgroundColor = "#fff";
+            } else if(color == "#FFF") {
+                document.getElementById("hero-container").style.color = "#000";
+                document.getElementById("hero-container").style.transition = "1s";
+                document.getElementById("cup-body").style.backgroundColor = "#f3f3f3";
+                document.getElementById("cup-body").style.transition = "1s";
+                document.getElementById("cup-shade").style.backgroundColor = "#CCC";
+                document.getElementById("cup-shade").style.transition = "1s";
+                document.getElementById("steam1").style.backgroundColor = "#333";
+                document.getElementById("steam2").style.backgroundColor = "#333";
+                document.getElementById("steam3").style.backgroundColor = "#333";
+                document.getElementById("steam4").style.backgroundColor = "#333";
+
+
+            };
+        };
+        document.getElementById("home-contents").style.display = "";
+        document.getElementById("projects-contents").style.display = "none";
+        document.getElementById("info-contents").style.display = "none";
+        document.getElementById("contacts-contents").style.display = "none";
+
+        function clickLink(element) {
+            if (element.id == "fb") {
+                window.open("https://www.facebook.com/abnrsmn/");
+            } else if (element.id == "ig") {
+                window.open("https://www.instagram.com/abnrsmn/");
+            } else if (element.id == "lnkd") {
+                window.open("https://www.linkedin.com/in/abnrsmn/");
+            };
+        }
+
+        function contacts() {
+            document.getElementById("contacts-contents").style.display = "";
+            document.getElementById("contacts-contents").style.animation = "fadeIn 1.5s";
+
+        };
+
+        function info() {
+            document.getElementById("info-contents").style.animation = "fadeIn 1.5s";
+            document.getElementById("info-contents").style.display = "";
+
+        };
+        // projects();
+        function projects() {
+                document.getElementById("projects-contents").style.display = "";
+                document.getElementById("projects-contents").style.animation = "fadeIn 1.5s";
+
+                document.getElementById("projects-contents").style.position = "absolute";
+                document.getElementById("projects-contents").style.left = "12%";
+                document.getElementById("projects-contents").style.top = "22%";
+                document.getElementById("projects-contents").style.display = "flex";
+                document.getElementById("projects-contents").style.gap = "20px";
+                document.getElementById("projects-contents").style.fontSize = "18px";
+                document.getElementById("projects-contents").style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+                // document.getElementById("date").style.fontSize = "18px";
+                document.getElementById("date").style.fontWeight = "400";
+                document.getElementById("date").style.opacity = "44%";
+                document.getElementById("projects-name").textContent = "GT Sice : Network Signal Test Automation";
+        };
+        home();
+        function home() {
+            if (document.getElementById("home-contents").style.display == "") {
+                document.getElementById("home").textContent = "•••";
+                document.getElementById("home").style.pointerEvents = "none";
+                document.getElementById("home").style.userSelect = "none";
+                document.getElementById("home-contents-text").style.marginTop = "40px";
+                document.getElementById("home-contents-text").style.fontSize = "18px";
+                document.getElementById("home-contents-text").style.width = "100%";
+                document.getElementById("home-contents-text").style.maxWidth = "500px";
+                document.getElementById("home-contents-text").textContent = "Born in 2001, in Quezon City, Philippines. I know that there is greater diversity in web design. Once we think of it, speak about it, and act to do it, it will always be possible. Let's make a difference.";
+            };
+        };
+        function clickThis(element) {
+            if (element.id == "home") {
+                document.getElementById("home-contents").style.display = "";
+                document.getElementById("home-contents").style.animation = "fadeIn 2.5s";
+                element.style.animation = " fadeIn 2.5s";
+                element.textContent = "•••";
+                element.style.pointerEvents = "none";
+                element.style.userSelect = "none";
+                document.getElementById("home-contents-text").style.marginTop = "40px";
+                document.getElementById("home-contents-text").style.fontSize = "18px";
+                document.getElementById("home-contents-text").style.width = "600px"
+                document.getElementById("home-contents-text").textContent = "Born in 2001, in Quezon City, Philippines. I know that there is greater diversity in web design. Once we think of it, speak about it, and act to do it, it will always be possible. Let's make a difference.";
+                document.getElementById("projects").textContent = "Projects";
+                document.getElementById("projects").style.pointerEvents = "";
+                document.getElementById("projects").style.userSelect = "";
+                document.getElementById("projects-contents").style.display = "none";
+                document.getElementById("info").textContent = "Info";
+                document.getElementById("info").style.pointerEvents = "";
+                document.getElementById("info").style.userSelect = "";
+                document.getElementById("info-contents").style.display = "none";
+                document.getElementById("contacts").textContent = "Contacts";
+                document.getElementById("contacts").style.pointerEvents = "";
+                document.getElementById("contacts").style.userSelect = "";
+                document.getElementById("contacts-contents").style.display = "none";
+            } else if (element.id == "projects") {
+                element.style.animation = " fadeIn 2.5s";
+                element.textContent = "•••";
+                element.style.pointerEvents = "none";
+                element.style.userSelect = "none";
+                document.getElementById("home").textContent = "Home";
+                document.getElementById("home").style.pointerEvents = "";
+                document.getElementById("home").style.userSelect = "";
+                document.getElementById("home-contents").style.display = "none";
+                document.getElementById("info").textContent = "Info";
+                document.getElementById("info").style.pointerEvents = "";
+                document.getElementById("info").style.userSelect = "";
+                document.getElementById("info-contents").style.display = "none";
+                document.getElementById("contacts").textContent = "Contacts";
+                document.getElementById("contacts").style.pointerEvents = "";
+                document.getElementById("contacts").style.userSelect = "";
+                document.getElementById("contacts-contents").style.display = "none";
+                projects();
+            } else if (element.id == "info") {
+                element.style.animation = " fadeIn 2.5s";
+                element.textContent = "•••";
+                element.style.pointerEvents = "none";
+                element.style.userSelect = "none";
+                document.getElementById("home").textContent = "Home";
+                document.getElementById("home").style.pointerEvents = "";
+                document.getElementById("home").style.userSelect = "";
+                document.getElementById("home-contents").style.display = "none";
+                document.getElementById("projects").textContent = "Projects";
+                document.getElementById("projects").style.pointerEvents = "";
+                document.getElementById("projects").style.userSelect = "";
+                document.getElementById("projects-contents").style.display = "none";
+                document.getElementById("contacts").textContent = "Contacts";
+                document.getElementById("contacts").style.pointerEvents = "";
+                document.getElementById("contacts").style.userSelect = "";
+                document.getElementById("contacts-contents").style.display = "none";
+                info();
+            } else if (element.id == "contacts") {
+                element.style.animation = " fadeIn 2.5s";
+                element.textContent = "•••";
+                element.style.pointerEvents = "none";
+                element.style.userSelect = "none";
+                document.getElementById("home").textContent = "Home";
+                document.getElementById("home").style.pointerEvents = "";
+                document.getElementById("home").style.userSelect = "";
+                document.getElementById("home-contents").style.display = "none";
+                document.getElementById("projects").textContent = "Projects";
+                document.getElementById("projects").style.pointerEvents = "";
+                document.getElementById("projects").style.userSelect = "";
+                document.getElementById("projects-contents").style.display = "none";
+                document.getElementById("info").textContent = "Info";
+                document.getElementById("info").style.pointerEvents = "";
+                document.getElementById("info").style.userSelect = "";
+                document.getElementById("info-contents").style.display = "none";
+                contacts();
+            };
+        };
+
+    </script>
+</body>
+</html>
